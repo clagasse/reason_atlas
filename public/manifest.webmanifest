@@ -1,0 +1,17 @@
+{
+  "name": "Reason Atlas",
+  "short_name": "Reason Atlas",
+  "description": "An interactive field guide and visual atlas to logical fallacies, cognitive biases, eponymous laws, philosophical razors, and mental models.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171716",
+  "theme_color": "#171716",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

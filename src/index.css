@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  --bg-canvas: #171716;
+  --bg-surface: #21211f;
+  --bg-surface-muted: #2a2a27;
+  --bg-surface-elevated: #32322f;
+  --border-subtle: #333330;
+  --border-strong: #4a4a45;
+  --text-primary: #ededeb;
+  --text-secondary: #b8b8b2;
+  --text-muted: #878780;
+  --accent-ink: #ededeb;
+
+  --kind-fallacy: #ef7d6b;
+  --kind-fallacy-bg: rgba(239, 125, 107, 0.13);
+  --kind-fallacy-border: rgba(239, 125, 107, 0.34);
+
+  --kind-bias: #e8b259;
+  --kind-bias-bg: rgba(232, 178, 89, 0.13);
+  --kind-bias-border: rgba(232, 178, 89, 0.34);
+
+  --kind-law: #7baef5;
+  --kind-law-bg: rgba(123, 174, 245, 0.13);
+  --kind-law-border: rgba(123, 174, 245, 0.34);
+
+  --kind-razor: #63caa1;
+  --kind-razor-bg: rgba(99, 202, 161, 0.13);
+  --kind-razor-border: rgba(99, 202, 161, 0.34);
+
+  --kind-model: #c59ee3;
+  --kind-model-bg: rgba(197, 158, 227, 0.13);
+  --kind-model-border: rgba(197, 158, 227, 0.34);
+}
+
+@layer base {
+  html {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+  }
+}
+
+.atlas-surface {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+}
+
+.atlas-surface-muted {
+  background-color: var(--bg-surface-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.atlas-grid-bg {
+  background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Kind utility helpers */
+.kind-pill-fallacy {
+  color: var(--kind-fallacy);
+  background-color: var(--kind-fallacy-bg);
+  border-color: var(--kind-fallacy-border);
+}
+.kind-pill-bias {
+  color: var(--kind-bias);
+  background-color: var(--kind-bias-bg);
+  border-color: var(--kind-bias-border);
+}
+.kind-pill-law {
+  color: var(--kind-law);
+  background-color: var(--kind-law-bg);
+  border-color: var(--kind-law-border);
+}
+.kind-pill-razor {
+  color: var(--kind-razor);
+  background-color: var(--kind-razor-bg);
+  border-color: var(--kind-razor-border);
+}
+.kind-pill-mental-model {
+  color: var(--kind-model);
+  background-color: var(--kind-model-bg);
+  border-color: var(--kind-model-border);
+}
+
+.kind-border-fallacy {
+  border-top-color: var(--kind-fallacy);
+}
+.kind-border-bias {
+  border-top-color: var(--kind-bias);
+}
+.kind-border-law {
+  border-top-color: var(--kind-law);
+}
+.kind-border-razor {
+  border-top-color: var(--kind-razor);
+}
+.kind-border-mental-model {
+  border-top-color: var(--kind-model);
+}
+
+/* Subtle custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
