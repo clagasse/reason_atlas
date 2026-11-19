@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import {
   Search,
   Shuffle,
@@ -13,10 +13,7 @@ import {
   SlidersHorizontal,
   Sparkles,
 } from 'lucide-react';
-import {
-  ALL_CONCEPTS,
-  getCountsByKind,
-} from '../data';
+import { getCountsByKind } from '../data';
 import {
   DOMAIN_META,
   DOMAIN_ORDER,
@@ -46,7 +43,6 @@ export function ExplorerPage({
   isBookmarked,
   onToggleBookmark,
 }: ExplorerPageProps) {
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [viewMode, setViewMode] = useState<CatalogViewMode>('grid');
   const [showDomains, setShowDomains] = useState(false);
@@ -78,12 +74,6 @@ export function ExplorerPage({
   }, [searchParams, setOnlyBookmarked, setSearchParams]);
 
   const countsByKind = useMemo(() => getCountsByKind(), []);
-
-  const handleSurpriseMe = () => {
-    const pool = results.length > 0 ? results : ALL_CONCEPTS;
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    navigate(`/concept/${pick.slug}`);
-  };
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-10 pb-14">
@@ -120,14 +110,13 @@ export function ExplorerPage({
             )}
           </div>
 
-          <button
-            type="button"
-            onClick={handleSurpriseMe}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-2.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] transition-colors cursor-pointer shrink-0"
+          <Link
+            to="/recall"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-2.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] transition-colors shrink-0"
           >
             <Shuffle className="h-4 w-4" />
-            Surprise Me
-          </button>
+            Random Recall
+          </Link>
         </div>
       </section>
 

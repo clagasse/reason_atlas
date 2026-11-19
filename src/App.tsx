@@ -20,6 +20,9 @@ const GraphPage = lazy(() =>
 const DiagnosePage = lazy(() =>
   import('./pages/DiagnosePage').then((m) => ({ default: m.DiagnosePage }))
 );
+const RecallPage = lazy(() =>
+  import('./pages/RecallPage').then((m) => ({ default: m.RecallPage }))
+);
 const AboutPage = lazy(() =>
   import('./pages/AboutPage').then((m) => ({ default: m.AboutPage }))
 );
@@ -103,6 +106,16 @@ function AppShell() {
               path="/diagnose"
               element={
                 <DiagnosePage
+                  isBookmarked={isBookmarked}
+                  onToggleBookmark={toggleBookmark}
+                />
+              }
+            />
+            <Route
+              path="/recall"
+              element={
+                <RecallPage
+                  bookmarkedIds={bookmarkedIds}
                   isBookmarked={isBookmarked}
                   onToggleBookmark={toggleBookmark}
                 />

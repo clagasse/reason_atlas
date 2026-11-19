@@ -70,12 +70,6 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
 
   if (!open) return null;
 
-  const jumpToRandom = () => {
-    const pick = ALL_CONCEPTS[Math.floor(Math.random() * ALL_CONCEPTS.length)];
-    navigate(`/concept/${pick.slug}`);
-    onClose();
-  };
-
   return (
     <div
       className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-[10vh]"
@@ -156,11 +150,14 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
             </button>
             <button
               type="button"
-              onClick={jumpToRandom}
+              onClick={() => {
+                navigate('/recall');
+                onClose();
+              }}
               className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1 text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] cursor-pointer"
             >
               <Shuffle className="h-3.5 w-3.5" />
-              Surprise Me
+              Random Recall
             </button>
             <button
               type="button"

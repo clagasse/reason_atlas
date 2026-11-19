@@ -4,6 +4,7 @@ import {
   Compass,
   Network,
   Stethoscope,
+  Shuffle,
   Search,
   Bookmark,
   Library,
@@ -67,6 +68,10 @@ export function Layout({
               <Stethoscope className="h-4 w-4" />
               Diagnose
             </NavLink>
+            <NavLink to="/recall" className={navLinkClass}>
+              <Shuffle className="h-4 w-4" />
+              Recall
+            </NavLink>
             <NavLink to="/about" className={navLinkClass}>
               <Library className="h-4 w-4" />
               About & Sources
@@ -117,6 +122,10 @@ export function Layout({
           <NavLink to="/diagnose" className={navLinkClass}>
             <Stethoscope className="h-4 w-4" />
             Diagnose
+          </NavLink>
+          <NavLink to="/recall" className={navLinkClass}>
+            <Shuffle className="h-4 w-4" />
+            Recall
           </NavLink>
           <NavLink to="/about" className={navLinkClass}>
             <Library className="h-4 w-4" />
